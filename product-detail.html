@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details - ExpressMall</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#fdf2f8',
+                100: '#fce7f3',
+                500: '#db2777',
+                700: '#be185d',
+              },
+            },
+          },
+        },
+      };
+    </style>
+  </head>
+  <body class="bg-slate-50 text-slate-800">
+    <header class="bg-green-600 text-white shadow-sm">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center gap-3">
+      <div class="h-10 w-10 rounded-lg bg-gradient-to-r from-green-500 to-green-700 text-white flex items-center justify-center font-bold text-xl">E</div>
+      <div>
+        <p class="text-lg font-semibold text-white">ExpressMall</p>
+        <p class="text-xs text-green-200">Shop smarter</p>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden items-center gap-4 text-sm font-medium text-white md:flex">
+      <a href="index.html" class="rounded-lg px-3 py-2 hover:bg-green-700 transition-colors" title="Home"><i class="fas fa-home"></i></a>
+      <a href="shop.html" class="rounded-lg px-3 py-2 hover:bg-green-700 transition-colors" title="Shop"><i class="fas fa-store"></i></a>
+      <a href="categories.html" class="rounded-lg px-3 py-2 hover:bg-green-700 transition-colors" title="Categories"><i class="fas fa-th-large"></i></a>
+      <a href="deals.html" class="rounded-lg px-3 py-2 hover:bg-green-700 transition-colors" title="Deals"><i class="fas fa-fire"></i></a>
+      <a href="cart.html" class="rounded-lg px-3 py-2 hover:bg-green-700 transition-colors" title="Cart"><i class="fas fa-shopping-cart"></i></a>
+      <a href="contact.html" class="rounded-lg px-3 py-2 hover:bg-green-700 transition-colors" title="Contact"><i class="fas fa-envelope"></i></a>
+      <a href="faq.html" class="rounded-lg px-3 py-2 hover:bg-green-700 transition-colors" title="FAQ"><i class="fas fa-question-circle"></i></a>
+    </nav>
+
+    <!-- Right side buttons -->
+    <div class="flex items-center gap-3">
+      <a href="cart.html" class="md:hidden text-white hover:text-green-100 transition-colors">
+        <i class="fas fa-shopping-cart text-xl"></i>
+      </a>
+      <button onclick="toggleMobileMenu()" 
+              class="md:hidden text-white hover:text-green-100 transition-colors text-2xl w-10 h-10 flex items-center justify-center">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== MOBILE MENU ==================== -->
+  <div id="mobileMenu" class="hidden md:hidden fixed inset-0 bg-black/70 z-50 transition-opacity">
+    <div class="bg-white h-full w-80 max-w-[85%] ml-auto shadow-xl flex flex-col">
+      <!-- Mobile Menu Header -->
+      <div class="flex items-center justify-between p-5 border-b">
+        <div class="flex items-center gap-3">
+          <div class="h-9 w-9 rounded-lg bg-gradient-to-r from-green-500 to-green-700 text-white flex items-center justify-center font-bold">E</div>
+          <span class="font-semibold text-xl text-slate-900">ExpressMall</span>
+        </div>
+        <button onclick="toggleMobileMenu()" class="text-slate-500 hover:text-slate-700 text-3xl leading-none">
+          ×
+        </button>
+      </div>
+
+      <!-- Mobile Menu Links -->
+      <nav class="flex-1 overflow-y-auto p-5 space-y-2 text-lg">
+        <a href="index.html" onclick="toggleMobileMenu()" class="flex items-center gap-4 px-4 py-4 rounded-xl hover:bg-green-50 text-slate-700 hover:text-green-700 transition-colors">
+          <i class="fas fa-home w-6"></i>
+          <span>Home</span>
+        </a>
+        <a href="shop.html" onclick="toggleMobileMenu()" class="flex items-center gap-4 px-4 py-4 rounded-xl hover:bg-green-50 text-slate-700 hover:text-green-700 transition-colors">
+          <i class="fas fa-store w-6"></i>
+          <span>Shop</span>
+        </a>
+        <a href="categories.html" onclick="toggleMobileMenu()" class="flex items-center gap-4 px-4 py-4 rounded-xl hover:bg-green-50 text-slate-700 hover:text-green-700 transition-colors">
+          <i class="fas fa-th-large w-6"></i>
+          <span>Categories</span>
+        </a>
+        <a href="deals.html" onclick="toggleMobileMenu()" class="flex items-center gap-4 px-4 py-4 rounded-xl hover:bg-green-50 text-slate-700 hover:text-green-700 transition-colors">
+          <i class="fas fa-fire w-6"></i>
+          <span>Deals</span>
+        </a>
+        <a href="cart.html" onclick="toggleMobileMenu()" class="flex items-center gap-4 px-4 py-4 rounded-xl hover:bg-green-50 text-slate-700 hover:text-green-700 transition-colors">
+          <i class="fas fa-shopping-cart w-6"></i>
+          <span>Cart</span>
+        </a>
+        <a href="contact.html" onclick="toggleMobileMenu()" class="flex items-center gap-4 px-4 py-4 rounded-xl hover:bg-green-50 text-slate-700 hover:text-green-700 transition-colors">
+          <i class="fas fa-envelope w-6"></i>
+          <span>Contact</span>
+        </a>
+        <a href="faq.html" onclick="toggleMobileMenu()" class="flex items-center gap-4 px-4 py-4 rounded-xl hover:bg-green-50 text-slate-700 hover:text-green-700 transition-colors">
+          <i class="fas fa-question-circle w-6"></i>
+          <span>FAQ</span>
+        </a>
+      </nav>
+
+      <!-- Mobile Menu Footer -->
+      <div class="border-t p-5">
+        <a href="index.html" onclick="toggleMobileMenu()" 
+           class="block text-center bg-green-600 text-white py-3 rounded-xl font-medium hover:bg-green-700 transition-colors">
+          Back to Home
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+    <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <div class="mb-6 flex items-center gap-2 text-sm text-slate-600">
+        <a href="index.html" class="text-blue-600 hover:underline">Home</a>
+        <span>/</span>
+        <a href="shop.html" class="text-blue-600 hover:underline">Shop</a>
+        <span>/</span>
+        <a href="categories.html?category=electronics" class="text-blue-600 hover:underline">Electronics</a>
+        <span>/</span>
+        <span class="text-slate-900">Premium Wireless Headphones</span>
+      </div>
+
+      <div class="grid gap-8 lg:grid-cols-2">
+        <!-- Product Image Section -->
+        <section class="flex flex-col gap-4">
+          <!-- Main Image -->
+          <div class="rounded-lg border border-slate-200 bg-white overflow-hidden">
+            <img 
+              id="mainImage" 
+              src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80" 
+              alt="Premium Wireless Headphones" 
+              class="w-full object-cover aspect-square"
+            />
+          </div>
+
+          <!-- Thumbnail Gallery -->
+          <div class="grid grid-cols-4 gap-2">
+            <button onclick="changeImage('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=200&q=80')" class="rounded-lg border-2 border-brand-500 overflow-hidden bg-white">
+              <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=100&q=80" alt="View 1" class="w-full aspect-square object-cover" />
+            </button>
+            <button onclick="changeImage('https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=200&q=80')" class="rounded-lg border-2 border-slate-200 hover:border-slate-300 overflow-hidden bg-white">
+              <img src="https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=100&q=80" alt="View 2" class="w-full aspect-square object-cover" />
+            </button>
+            <button onclick="changeImage('https://images.unsplash.com/photo-1487215078519-e21cc028cb29?auto=format&fit=crop&w=200&q=80')" class="rounded-lg border-2 border-slate-200 hover:border-slate-300 overflow-hidden bg-white">
+              <img src="https://images.unsplash.com/photo-1487215078519-e21cc028cb29?auto=format&fit=crop&w=100&q=80" alt="View 3" class="w-full aspect-square object-cover" />
+            </button>
+            <button onclick="changeImage('https://images.unsplash.com/photo-1487215078519-e21cc028cb29?auto=format&fit=crop&w=200&q=80')" class="rounded-lg border-2 border-slate-200 hover:border-slate-300 overflow-hidden bg-white">
+              <img src="https://images.unsplash.com/photo-1487215078519-e21cc028cb29?auto=format&fit=crop&w=100&q=80" alt="View 4" class="w-full aspect-square object-cover" />
+            </button>
+          </div>
+        </section>
+
+        <!-- Product Details Section -->
+        <section class="flex flex-col gap-6">
+          <!-- Product Title & Rating -->
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm text-slate-500">Electronics</span>
+              <span class="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full font-semibold">In Stock</span>
+            </div>
+            <h1 class="text-3xl font-bold text-slate-900">Premium Wireless Headphones</h1>
+            
+            <!-- Rating -->
+            <div class="mt-3 flex items-center gap-2">
+              <div class="flex text-yellow-400">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+              <span class="text-sm text-slate-600">(4.8 out of 5 • 2,547 ratings)</span>
+              <a href="#reviews" class="text-blue-600 text-sm hover:underline">See all reviews</a>
+            </div>
+          </div>
+
+          <!-- Price Section -->
+          <div class="border-t border-b border-slate-200 py-4">
+            <div class="flex items-baseline gap-3 mb-2">
+              <span class="text-4xl font-bold text-slate-900">$299.99</span>
+              <span class="text-lg text-slate-500 line-through">$399.99</span>
+              <span class="text-sm font-bold text-red-600 bg-red-50 px-2 py-1 rounded">Save 25%</span>
+            </div>
+            <p class="text-sm text-slate-600">Get it as soon as tomorrow with Prime</p>
+          </div>
+
+          <!-- Product Description -->
+          <div>
+            <h3 class="text-lg font-semibold text-slate-900 mb-2">About this item</h3>
+            <ul class="space-y-2 text-slate-600 text-sm">
+              <li class="flex gap-2">
+                <span class="text-brand-500">✓</span>
+                <span>Active Noise Cancellation for immersive listening experience</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-brand-500">✓</span>
+                <span>40-hour battery life with quick charging (5 mins = 2 hours)</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-brand-500">✓</span>
+                <span>Bluetooth 5.0 connectivity with multi-device pairing</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-brand-500">✓</span>
+                <span>Premium comfort design with memory foam ear cushions</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-brand-500">✓</span>
+                <span>Built-in microphone for hands-free calls</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Product Options -->
+          <div class="space-y-4 border-t border-slate-200 pt-4">
+            <!-- Color Selection -->
+            <div>
+              <label class="block text-sm font-semibold text-slate-900 mb-2">Color:</label>
+              <div class="flex gap-2">
+                <button class="w-8 h-8 rounded-full bg-slate-900 border-2 border-slate-900 cursor-pointer hover:opacity-80"></button>
+                <button class="w-8 h-8 rounded-full bg-slate-400 border-2 border-slate-300 cursor-pointer hover:opacity-80"></button>
+                <button class="w-8 h-8 rounded-full bg-blue-600 border-2 border-slate-300 cursor-pointer hover:opacity-80"></button>
+                <button class="w-8 h-8 rounded-full bg-red-600 border-2 border-slate-300 cursor-pointer hover:opacity-80"></button>
+              </div>
+            </div>
+
+            <!-- Quantity Selection -->
+            <div>
+              <label for="quantity" class="block text-sm font-semibold text-slate-900 mb-2">Quantity:</label>
+              <div class="flex gap-2">
+                <button id="decreaseQty" onclick="decreaseQty()" class="px-3 py-2 border border-slate-300 rounded-lg hover:bg-slate-100">−</button>
+                <input 
+                  id="quantity" 
+                  type="number" 
+                  value="1" 
+                  min="1" 
+                  max="10" 
+                  class="w-16 text-center border border-slate-300 rounded-lg focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none"
+                />
+                <button id="increaseQty" onclick="increaseQty()" class="px-3 py-2 border border-slate-300 rounded-lg hover:bg-slate-100">+</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="space-y-2 border-t border-slate-200 pt-4">
+            <button onclick="addToCart()" class="w-full rounded-lg bg-blue-500 px-6 py-3 font-semibold text-white hover:bg-blue-600 transition-colors flex items-center justify-center gap-2">
+              🛒 Add to Shopping Cart
+            </button>
+            <button onclick="buyNow()" class="w-full rounded-lg bg-gradient-to-r from-orange-500 to-pink-500 px-6 py-3 font-semibold text-white shadow-lg shadow-orange-300/30 transform transition duration-300 hover:scale-[1.02] hover:shadow-xl hover:from-orange-600 hover:to-pink-600 flex items-center justify-center gap-2">
+              ⚡ Buy Now
+            </button>
+            <button onclick="addToWishlist()" class="w-full rounded-lg border border-slate-300 px-6 py-3 font-semibold text-slate-900 hover:bg-slate-100 transition-colors flex items-center justify-center gap-2">
+              ♡ Add to Wishlist
+            </button>
+          </div>
+
+          <!-- Guarantees -->
+          <div class="grid grid-cols-2 gap-3 rounded-lg bg-slate-50 p-4">
+            <div class="text-center">
+              <p class="text-sm font-semibold text-slate-900">Free Shipping</p>
+              <p class="text-xs text-slate-600">Orders over $50</p>
+            </div>
+            <div class="text-center">
+              <p class="text-sm font-semibold text-slate-900">30-Day Returns</p>
+              <p class="text-xs text-slate-600">Full refund guarantee</p>
+            </div>
+            <div class="text-center">
+              <p class="text-sm font-semibold text-slate-900">1-Year Warranty</p>
+              <p class="text-xs text-slate-600">Manufacturer coverage</p>
+            </div>
+            <div class="text-center">
+              <p class="text-sm font-semibold text-slate-900">Expert Support</p>
+              <p class="text-xs text-slate-600">24/7 help available</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Product Specifications -->
+      <section class="mt-12 rounded-lg border border-slate-200 bg-white p-6">
+        <h2 class="text-2xl font-bold text-slate-900 mb-6">Product Specifications</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <tbody class="divide-y divide-slate-200">
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-semibold text-slate-700 w-1/3">Brand</td>
+                <td class="py-3 px-4 text-slate-600">AudioPro</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-semibold text-slate-700 w-1/3">Model</td>
+                <td class="py-3 px-4 text-slate-600">AudioPro Elite X1</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-semibold text-slate-700 w-1/3">Connectivity</td>
+                <td class="py-3 px-4 text-slate-600">Bluetooth 5.0, 3.5mm Jack</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-semibold text-slate-700 w-1/3">Battery Life</td>
+                <td class="py-3 px-4 text-slate-600">40 hours (ANC on), 60 hours (ANC off)</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-semibold text-slate-700 w-1/3">Charging Time</td>
+                <td class="py-3 px-4 text-slate-600">2 hours (full), 5 mins for 2 hours use</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-semibold text-slate-700 w-1/3">Driver Size</td>
+                <td class="py-3 px-4 text-slate-600">40mm</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-semibold text-slate-700 w-1/3">Frequency Response</td>
+                <td class="py-3 px-4 text-slate-600">20Hz - 20kHz</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-semibold text-slate-700 w-1/3">Weight</td>
+                <td class="py-3 px-4 text-slate-600">290g</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-semibold text-slate-700 w-1/3">Cable Length</td>
+                <td class="py-3 px-4 text-slate-600">1.2m</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-semibold text-slate-700 w-1/3">Material</td>
+                <td class="py-3 px-4 text-slate-600">Premium aluminum with memory foam padding</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Customer Reviews -->
+      <section id="reviews" class="mt-12">
+        <h2 class="text-2xl font-bold text-slate-900 mb-6">Customer Reviews</h2>
+        
+        <!-- Review Summary -->
+        <div class="grid gap-8 lg:grid-cols-3 mb-8">
+          <div class="rounded-lg bg-white p-6 border border-slate-200">
+            <p class="text-5xl font-bold text-slate-900">4.8</p>
+            <div class="flex text-yellow-400 my-2">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="text-slate-600 text-sm">Based on 2,547 verified reviews</p>
+          </div>
+
+          <!-- Rating Distribution -->
+          <div class="lg:col-span-2 rounded-lg bg-white p-6 border border-slate-200">
+            <div class="space-y-3">
+              <div class="flex items-center gap-2">
+                <span class="text-sm text-slate-600 w-16">★★★★★</span>
+                <div class="flex-1 bg-slate-200 rounded-full h-2">
+                  <div class="bg-yellow-400 h-2 rounded-full" style="width: 72%"></div>
+                </div>
+                <span class="text-sm text-slate-600 w-12 text-right">1,830</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-sm text-slate-600 w-16">★★★★☆</span>
+                <div class="flex-1 bg-slate-200 rounded-full h-2">
+                  <div class="bg-yellow-400 h-2 rounded-full" style="width: 15%"></div>
+                </div>
+                <span class="text-sm text-slate-600 w-12 text-right">381</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-sm text-slate-600 w-16">★★★☆☆</span>
+                <div class="flex-1 bg-slate-200 rounded-full h-2">
+                  <div class="bg-yellow-400 h-2 rounded-full" style="width: 8%"></div>
+                </div>
+                <span class="text-sm text-slate-600 w-12 text-right">204</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-sm text-slate-600 w-16">★★☆☆☆</span>
+                <div class="flex-1 bg-slate-200 rounded-full h-2">
+                  <div class="bg-yellow-400 h-2 rounded-full" style="width: 3%"></div>
+                </div>
+                <span class="text-sm text-slate-600 w-12 text-right">76</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-sm text-slate-600 w-16">★☆☆☆☆</span>
+                <div class="flex-1 bg-slate-200 rounded-full h-2">
+                  <div class="bg-yellow-400 h-2 rounded-full" style="width: 2%"></div>
+                </div>
+                <span class="text-sm text-slate-600 w-12 text-right">56</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Individual Reviews -->
+        <div class="space-y-6">
+          <div class="rounded-lg bg-white p-6 border border-slate-200">
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <p class="font-semibold text-slate-900">Amazing sound quality!</p>
+                <div class="flex text-yellow-400 my-1">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <p class="text-sm text-slate-600">by <strong>John M.</strong> on March 15, 2026</p>
+              </div>
+              <span class="text-sm text-slate-500">✓ Verified Purchase</span>
+            </div>
+            <p class="text-slate-700 leading-relaxed">
+              These headphones exceeded my expectations. The noise cancellation is incredible, and the sound quality is crisp and clear. Battery life is excellent and they're very comfortable to wear for extended periods. Highly recommended!
+            </p>
+            <div class="mt-4 flex gap-4 text-sm">
+              <button class="text-blue-600 hover:underline">👍 Helpful (1,234)</button>
+              <button class="text-blue-600 hover:underline">👎 Not helpful (45)</button>
+            </div>
+          </div>
+
+          <div class="rounded-lg bg-white p-6 border border-slate-200">
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <p class="font-semibold text-slate-900">Worth the investment</p>
+                <div class="flex text-yellow-400 my-1">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <p class="text-sm text-slate-600">by <strong>Sarah K.</strong> on March 10, 2026</p>
+              </div>
+              <span class="text-sm text-slate-500">✓ Verified Purchase</span>
+            </div>
+            <p class="text-slate-700 leading-relaxed">
+              Perfect for work calls and listening to music. The sound quality is fantastic and I love how they fold up for storage. Customer service was responsive and helpful when I had questions.
+            </p>
+            <div class="mt-4 flex gap-4 text-sm">
+              <button class="text-blue-600 hover:underline">👍 Helpful (892)</button>
+              <button class="text-blue-600 hover:underline">👎 Not helpful (23)</button>
+            </div>
+          </div>
+
+          <div class="rounded-lg bg-white p-6 border border-slate-200">
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <p class="font-semibold text-slate-900">Good but not perfect</p>
+                <div class="flex text-yellow-400 my-1">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                </div>
+                <p class="text-sm text-slate-600">by <strong>Mike T.</strong> on March 5, 2026</p>
+              </div>
+              <span class="text-sm text-slate-500">✓ Verified Purchase</span>
+            </div>
+            <p class="text-slate-700 leading-relaxed">
+              Great headphones overall. Sound quality is excellent and battery lasts forever. My only complaint is they can feel a bit tight after wearing for 8+ hours at a time.
+            </p>
+            <div class="mt-4 flex gap-4 text-sm">
+              <button class="text-blue-600 hover:underline">👍 Helpful (567)</button>
+              <button class="text-blue-600 hover:underline">👎 Not helpful (12)</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 text-center">
+          <button class="rounded-lg border border-slate-300 px-6 py-3 font-semibold text-slate-900 hover:bg-slate-100 transition-colors">
+            See All Reviews
+          </button>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="bg-slate-900 p-6 text-slate-300 mt-16">
+      <div class="mx-auto flex max-w-7xl items-center justify-between text-sm sm:px-6 lg:px-8">
+        <span>© 2026 ExpressMall. All rights reserved.</span>
+        <a href="index.html" class="text-brand-400 hover:text-white">Return to Home</a>
+      </div>
+    </footer>
+
+    <script src="./assets/js/mobileMenu.js"></script>
+  </body>
+</html>

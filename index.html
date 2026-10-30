@@ -1,0 +1,363 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ExpressMall</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+      /* Custom tailwind config example */
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#fdf2f8',
+                100: '#fce7f3',
+                500: '#db2777',
+                700: '#be185d',
+              },
+            },
+          },
+        },
+      };
+    </style>
+  </head>
+  <body class="bg-slate-50 text-slate-800">
+    <header class="bg-green-600 text-white shadow-sm">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center gap-3">
+      <div class="h-10 w-10 rounded-lg bg-gradient-to-r from-green-500 to-green-700 text-white flex items-center justify-center font-bold text-xl">E</div>
+      <div>
+        <p class="text-lg font-semibold text-white">ExpressMall</p>
+        <p class="text-xs text-green-200">Shop smarter</p>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden items-center gap-4 text-sm font-medium text-white md:flex">
+      <a href="index.html" class="rounded-lg px-3 py-2 hover:bg-green-700 transition-colors" title="Home"><i class="fas fa-home"></i></a>
+      <a href="shop.html" class="rounded-lg px-3 py-2 hover:bg-green-700 transition-colors" title="Shop"><i class="fas fa-store"></i></a>
+      <a href="categories.html" class="rounded-lg px-3 py-2 hover:bg-green-700 transition-colors" title="Categories"><i class="fas fa-th-large"></i></a>
+      <a href="deals.html" class="rounded-lg px-3 py-2 hover:bg-green-700 transition-colors" title="Deals"><i class="fas fa-fire"></i></a>
+      <a href="cart.html" class="rounded-lg px-3 py-2 hover:bg-green-700 transition-colors" title="Cart"><i class="fas fa-shopping-cart"></i></a>
+      <a href="contact.html" class="rounded-lg px-3 py-2 hover:bg-green-700 transition-colors" title="Contact"><i class="fas fa-envelope"></i></a>
+      <a href="faq.html" class="rounded-lg px-3 py-2 hover:bg-green-700 transition-colors" title="FAQ"><i class="fas fa-question-circle"></i></a>
+    </nav>
+
+    <!-- Right side buttons -->
+    <div class="flex items-center gap-3">
+      <a href="cart.html" class="md:hidden text-white hover:text-green-100 transition-colors">
+        <i class="fas fa-shopping-cart text-xl"></i>
+      </a>
+      <button onclick="toggleMobileMenu()" 
+              class="md:hidden text-white hover:text-green-100 transition-colors text-2xl w-10 h-10 flex items-center justify-center">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== MOBILE MENU ==================== -->
+  <div id="mobileMenu" class="hidden md:hidden fixed inset-0 bg-black/70 z-50 transition-opacity">
+    <div class="bg-white h-full w-80 max-w-[85%] ml-auto shadow-xl flex flex-col">
+      <!-- Mobile Menu Header -->
+      <div class="flex items-center justify-between p-5 border-b">
+        <div class="flex items-center gap-3">
+          <div class="h-9 w-9 rounded-lg bg-gradient-to-r from-green-500 to-green-700 text-white flex items-center justify-center font-bold">E</div>
+          <span class="font-semibold text-xl text-slate-900">ExpressMall</span>
+        </div>
+        <button onclick="toggleMobileMenu()" class="text-slate-500 hover:text-slate-700 text-3xl leading-none">
+          ×
+        </button>
+      </div>
+
+      <!-- Mobile Menu Links -->
+      <nav class="flex-1 overflow-y-auto p-5 space-y-2 text-lg">
+        <a href="index.html" onclick="toggleMobileMenu()" class="flex items-center gap-4 px-4 py-4 rounded-xl hover:bg-green-50 text-slate-700 hover:text-green-700 transition-colors">
+          <i class="fas fa-home w-6"></i>
+          <span>Home</span>
+        </a>
+        <a href="shop.html" onclick="toggleMobileMenu()" class="flex items-center gap-4 px-4 py-4 rounded-xl hover:bg-green-50 text-slate-700 hover:text-green-700 transition-colors">
+          <i class="fas fa-store w-6"></i>
+          <span>Shop</span>
+        </a>
+        <a href="categories.html" onclick="toggleMobileMenu()" class="flex items-center gap-4 px-4 py-4 rounded-xl hover:bg-green-50 text-slate-700 hover:text-green-700 transition-colors">
+          <i class="fas fa-th-large w-6"></i>
+          <span>Categories</span>
+        </a>
+        <a href="deals.html" onclick="toggleMobileMenu()" class="flex items-center gap-4 px-4 py-4 rounded-xl hover:bg-green-50 text-slate-700 hover:text-green-700 transition-colors">
+          <i class="fas fa-fire w-6"></i>
+          <span>Deals</span>
+        </a>
+        <a href="cart.html" onclick="toggleMobileMenu()" class="flex items-center gap-4 px-4 py-4 rounded-xl hover:bg-green-50 text-slate-700 hover:text-green-700 transition-colors">
+          <i class="fas fa-shopping-cart w-6"></i>
+          <span>Cart</span>
+        </a>
+        <a href="contact.html" onclick="toggleMobileMenu()" class="flex items-center gap-4 px-4 py-4 rounded-xl hover:bg-green-50 text-slate-700 hover:text-green-700 transition-colors">
+          <i class="fas fa-envelope w-6"></i>
+          <span>Contact</span>
+        </a>
+        <a href="faq.html" onclick="toggleMobileMenu()" class="flex items-center gap-4 px-4 py-4 rounded-xl hover:bg-green-50 text-slate-700 hover:text-green-700 transition-colors">
+          <i class="fas fa-question-circle w-6"></i>
+          <span>FAQ</span>
+        </a>
+      </nav>
+
+      <!-- Mobile Menu Footer -->
+      <div class="border-t p-5">
+        <a href="index.html" onclick="toggleMobileMenu()" 
+           class="block text-center bg-green-600 text-white py-3 rounded-xl font-medium hover:bg-green-700 transition-colors">
+          Back to Home
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+    <main class="mx-auto mt-10 max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
+      <!-- Hero -->
+      <section class="rounded-2xl border border-dashed border-slate-300 bg-white p-0 shadow-sm overflow-hidden">
+        <div class="relative overflow-hidden">
+          <div class="slide relative h-80 w-full transition-opacity duration-700 opacity-100" data-index="0">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1600&q=80" alt="Big sale" class="h-80 w-full object-cover" />
+            <div class="absolute inset-0 bg-black/40"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-white px-4 text-center">
+              <p class="text-sm uppercase tracking-widest">Seasonal Offers</p>
+              <h2 class="mt-2 text-3xl font-bold sm:text-4xl">Up to 50% off select items</h2>
+              <a href="deals.html" class="mt-4 rounded-full bg-brand-500 px-6 py-3 text-sm font-semibold hover:bg-brand-600">Shop Sales</a>
+            </div>
+          </div>
+          <div class="slide absolute inset-0 h-80 w-full transition-opacity duration-700 opacity-0" data-index="1">
+            <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1600&q=80" alt="New arrivals" class="h-80 w-full object-cover" />
+            <div class="absolute inset-0 bg-black/35"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-white px-4 text-center">
+              <p class="text-sm uppercase tracking-widest">New Arrivals</p>
+              <h2 class="mt-2 text-3xl font-bold sm:text-4xl">Fresh gadgets daily</h2>
+              <a href="#latest" class="mt-4 rounded-full bg-brand-500 px-6 py-3 text-sm font-semibold hover:bg-brand-600">Browse Latest</a>
+            </div>
+          </div>
+          <div class="slide absolute inset-0 h-80 w-full transition-opacity duration-700 opacity-0" data-index="2">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80" alt="Popular products" class="h-80 w-full object-cover" />
+            <div class="absolute inset-0 bg-black/35"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-white px-4 text-center">
+              <p class="text-sm uppercase tracking-widest">Popular Right Now</p>
+              <h2 class="mt-2 text-3xl font-bold sm:text-4xl">Top rated favorites</h2>
+              <a href="#popular" class="mt-4 rounded-full bg-brand-500 px-6 py-3 text-sm font-semibold hover:bg-brand-600">View Popular</a>
+            </div>
+          </div>
+          <button id="prevSlide" class="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2 text-slate-800 shadow hover:bg-white">‹</button>
+          <button id="nextSlide" class="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2 text-slate-800 shadow hover:bg-white">›</button>
+        </div>
+        <div class="p-8 text-center">
+          <h1 class="text-3xl font-bold text-slate-900 sm:text-4xl">Welcome to ExpressMall</h1>
+          <p class="mt-3 text-slate-600 sm:text-lg">Your place for quick and secure online shopping with Tailwind-powered UI.</p>
+          <div class="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+            <a href="#latest" class="rounded-full bg-brand-500 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-brand-600">Shop Latest</a>
+            <a href="deals.html" class="rounded-full border border-brand-500 px-6 py-3 text-sm font-semibold text-brand-500 hover:bg-brand-50">See Deals</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Categories -->
+      <section class="rounded-2xl bg-gradient-to-r from-slate-50 to-white p-8 shadow-lg border border-slate-200/50">
+        <div class="mb-6 flex items-center justify-between">
+          <h2 class="text-2xl font-bold text-slate-900 bg-gradient-to-r from-brand-500 to-purple-600 bg-clip-text text-transparent">Shop by Category</h2>
+          <a href="categories.html" class="text-sm font-medium text-brand-500 hover:text-brand-700 transition-colors flex items-center gap-1">
+            View all <span class="text-lg">→</span>
+          </a>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <a href="shop.html?category=electronics" class="group relative overflow-hidden rounded-2xl bg-white p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-slate-100">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="relative z-10">
+              <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=400&q=80" alt="Electronics" class="h-40 w-full rounded-xl object-cover mb-4 group-hover:scale-110 transition-transform duration-300" />
+              <h3 class="text-lg font-semibold text-slate-900 group-hover:text-brand-600 transition-colors">Electronics</h3>
+              <p class="text-sm text-slate-500 mt-1">Tech & Gadgets</p>
+            </div>
+          </a>
+          <a href="shop.html?category=fashion" class="group relative overflow-hidden rounded-2xl bg-white p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-slate-100">
+            <div class="absolute inset-0 bg-gradient-to-br from-pink-50 to-rose-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="relative z-10">
+              <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=400&q=80" alt="Fashion" class="h-40 w-full rounded-xl object-cover mb-4 group-hover:scale-110 transition-transform duration-300" />
+              <h3 class="text-lg font-semibold text-slate-900 group-hover:text-brand-600 transition-colors">Fashion</h3>
+              <p class="text-sm text-slate-500 mt-1">Style & Apparel</p>
+            </div>
+          </a>
+          <a href="shop.html?category=home" class="group relative overflow-hidden rounded-2xl bg-white p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-slate-100">
+            <div class="absolute inset-0 bg-gradient-to-br from-green-50 to-emerald-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="relative z-10">
+              <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=400&q=80" alt="Home" class="h-40 w-full rounded-xl object-cover mb-4 group-hover:scale-110 transition-transform duration-300" />
+              <h3 class="text-lg font-semibold text-slate-900 group-hover:text-brand-600 transition-colors">Home</h3>
+              <p class="text-sm text-slate-500 mt-1">Decor & Living</p>
+            </div>
+          </a>
+          <a href="shop.html?category=sports" class="group relative overflow-hidden rounded-2xl bg-white p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-slate-100">
+            <div class="absolute inset-0 bg-gradient-to-br from-orange-50 to-amber-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="relative z-10">
+              <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=400&q=80" alt="Sports" class="h-40 w-full rounded-xl object-cover mb-4 group-hover:scale-110 transition-transform duration-300" />
+              <h3 class="text-lg font-semibold text-slate-900 group-hover:text-brand-600 transition-colors">Sports</h3>
+              <p class="text-sm text-slate-500 mt-1">Fitness & Outdoor</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Latest Products -->
+      <section id="latest" class="rounded-2xl bg-white p-6 shadow-sm">
+        <div class="mb-4 flex items-center justify-between">
+          <h2 class="text-xl font-bold text-slate-900">Latest Products</h2>
+          <a href="shop.html" class="text-sm font-medium text-brand-500 hover:underline">View all</a>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="rounded-xl border border-slate-200 p-4">
+            <img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=640&q=80" alt="Product image" class="h-40 w-full rounded-lg object-cover" />
+            <h3 class="mt-3 text-base font-semibold text-slate-900">Wireless Headphones</h3>
+            <p class="mt-1 text-sm text-slate-600">New arrival with noise cancellation.</p>
+            <p class="mt-2 font-bold text-brand-500">$79.99</p>
+          </article>
+          <article class="rounded-xl border border-slate-200 p-4">
+            <img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=640&q=80" alt="Product image" class="h-40 w-full rounded-lg object-cover" />
+            <h3 class="mt-3 text-base font-semibold text-slate-900">Smart Watch Pro</h3>
+            <p class="mt-1 text-sm text-slate-600">Track health and workouts.</p>
+            <p class="mt-2 font-bold text-brand-500">$139.99</p>
+          </article>
+          <article class="rounded-xl border border-slate-200 p-4">
+            <img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=640&q=80" alt="Product image" class="h-40 w-full rounded-lg object-cover" />
+            <h3 class="mt-3 text-base font-semibold text-slate-900">Portable Speaker</h3>
+            <p class="mt-1 text-sm text-slate-600">High-fidelity sound in a compact body.</p>
+            <p class="mt-2 font-bold text-brand-500">$49.99</p>
+          </article>
+          <article class="rounded-xl border border-slate-200 p-4">
+            <img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=640&q=80" alt="Product image" class="h-40 w-full rounded-lg object-cover" />
+            <h3 class="mt-3 text-base font-semibold text-slate-900">Running Shoes</h3>
+            <p class="mt-1 text-sm text-slate-600">Lightweight comfort for daily runs.</p>
+            <p class="mt-2 font-bold text-brand-500">$89.99</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Most Popular Products -->
+      <section id="popular" class="rounded-2xl bg-white p-6 shadow-sm">
+        <div class="mb-4 flex items-center justify-between">
+          <h2 class="text-xl font-bold text-slate-900">Most Popular Products</h2>
+          <a href="shop.html" class="text-sm font-medium text-brand-500 hover:underline">Explore more</a>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="rounded-xl border border-slate-200 p-4">
+            <img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=640&q=80" alt="Product image" class="h-40 w-full rounded-lg object-cover" />
+            <h3 class="mt-3 text-base font-semibold text-slate-900">4K Smart TV</h3>
+            <p class="mt-1 text-sm text-slate-600">Cinematic display with HDR10+.</p>
+            <p class="mt-2 font-bold text-brand-500">$499.99</p>
+          </article>
+          <article class="rounded-xl border border-slate-200 p-4">
+            <img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=640&q=80" alt="Product image" class="h-40 w-full rounded-lg object-cover" />
+            <h3 class="mt-3 text-base font-semibold text-slate-900">Gaming Laptop</h3>
+            <p class="mt-1 text-sm text-slate-600">High power for esports and streaming.</p>
+            <p class="mt-2 font-bold text-brand-500">$1,299.00</p>
+          </article>
+          <article class="rounded-xl border border-slate-200 p-4">
+            <img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=640&q=80" alt="Product image" class="h-40 w-full rounded-lg object-cover" />
+            <h3 class="mt-3 text-base font-semibold text-slate-900">Noise-Canceling Earbuds</h3>
+            <p class="mt-1 text-sm text-slate-600">Popular choice for commuting.</p>
+            <p class="mt-2 font-bold text-brand-500">$59.99</p>
+          </article>
+          <article class="rounded-xl border border-slate-200 p-4">
+            <img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=640&q=80" alt="Product image" class="h-40 w-full rounded-lg object-cover" />
+            <h3 class="mt-3 text-base font-semibold text-slate-900">Smartphone Max</h3>
+            <p class="mt-1 text-sm text-slate-600">Top-rated camera and battery life.</p>
+            <p class="mt-2 font-bold text-brand-500">$899.99</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Products on Sale -->
+      <section id="sale" class="rounded-2xl bg-white p-6 shadow-sm">
+        <div class="mb-4 flex items-center justify-between">
+          <h2 class="text-xl font-bold text-slate-900">Products on Sale</h2>
+          <a href="deals.html" class="text-sm font-medium text-brand-500 hover:underline">See all discounts</a>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="rounded-xl border border-slate-200 p-4">
+            <div class="relative h-40 rounded-lg overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=640&q=80" alt="Sale product" class="h-full w-full object-cover" />
+              <span class="absolute left-2 top-2 rounded-full bg-red-500 px-2 py-1 text-xs font-semibold text-white">-25%</span>
+            </div>
+            <h3 class="mt-3 text-base font-semibold text-slate-900">Bluetooth Speaker</h3>
+            <p class="mt-1 text-sm text-slate-600">Now with richer bass.</p>
+            <p class="mt-2 text-sm text-slate-500 line-through">$69.99</p>
+            <p class="text-lg font-bold text-brand-500">$52.49</p>
+          </article>
+          <article class="rounded-xl border border-slate-200 p-4">
+            <div class="relative h-40 rounded-lg overflow-hidden"><img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=640&q=80" alt="Sale product" class="h-full w-full object-cover" />
+              <span class="absolute left-2 top-2 rounded-full bg-red-500 px-2 py-1 text-xs font-semibold text-white">-30%</span>
+            </div>
+            <h3 class="mt-3 text-base font-semibold text-slate-900">Running Shoes</h3>
+            <p class="mt-1 text-sm text-slate-600">Speed and style on sale.</p>
+            <p class="mt-2 text-sm text-slate-500 line-through">$129.99</p>
+            <p class="text-lg font-bold text-brand-500">$90.99</p>
+          </article>
+          <article class="rounded-xl border border-slate-200 p-4">
+            <div class="relative h-40 rounded-lg overflow-hidden"><img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=640&q=80" alt="Sale product" class="h-full w-full object-cover" />
+              <span class="absolute left-2 top-2 rounded-full bg-red-500 px-2 py-1 text-xs font-semibold text-white">-20%</span>
+            </div>
+            <h3 class="mt-3 text-base font-semibold text-slate-900">Smart Home Hub</h3>
+            <p class="mt-1 text-sm text-slate-600">Control your home devices affordably.</p>
+            <p class="mt-2 text-sm text-slate-500 line-through">$99.99</p>
+            <p class="text-lg font-bold text-brand-500">$79.99</p>
+          </article>
+          <article class="rounded-xl border border-slate-200 p-4">
+            <div class="relative h-40 rounded-lg overflow-hidden"><img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=640&q=80" alt="Sale product" class="h-full w-full object-cover" />
+              <span class="absolute left-2 top-2 rounded-full bg-red-500 px-2 py-1 text-xs font-semibold text-white">-35%</span>
+            </div>
+            <h3 class="mt-3 text-base font-semibold text-slate-900">Gaming Controller</h3>
+            <p class="mt-1 text-sm text-slate-600">Premium feel for every player.</p>
+            <p class="mt-2 text-sm text-slate-500 line-through">$49.99</p>
+            <p class="text-lg font-bold text-brand-500">$32.49</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="rounded-2xl bg-slate-900 p-8 text-slate-300 shadow-sm">
+        <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
+          <div>
+            <h3 class="mb-2 text-lg font-semibold text-white">ExpressMall</h3>
+            <p class="text-sm">Fast, reliable shopping for everything you need.</p>
+          </div>
+          <div>
+            <h3 class="mb-2 font-semibold text-white">Shop</h3>
+            <ul class="space-y-1 text-sm">
+              <li><a href="shop.html" class="hover:text-white">New Arrivals</a></li>
+              <li><a href="shop.html" class="hover:text-white">Best Sellers</a></li>
+              <li><a href="shop.html" class="hover:text-white">Gift Cards</a></li>
+              <li><a href="deals.html" class="hover:text-white">Deals</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="mb-2 font-semibold text-white">Support</h3>
+            <ul class="space-y-1 text-sm">
+              <li><a href="contact.html" class="hover:text-white">Help Center</a></li>
+              <li><a href="contact.html" class="hover:text-white">Contact Us</a></li>
+              <li><a href="contact.html" class="hover:text-white">Shipping</a></li>
+              <li><a href="contact.html" class="hover:text-white">Returns</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="mb-2 font-semibold text-white">Stay Updated</h3>
+            <p class="text-sm">Sign up for the latest offers and product news.</p>
+            <form class="mt-3 flex items-center gap-2">
+              <input type="email" placeholder="you@example.com" class="w-full rounded-lg border border-slate-700 bg-slate-800 px-3 py-2 text-sm text-white outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-300" />
+              <button class="rounded-lg bg-brand-500 px-3 py-2 text-sm font-semibold text-white hover:bg-brand-600">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <div class="mt-8 border-t border-slate-700 pt-4 text-center text-xs text-slate-400">
+          © 2026 ExpressMall. All rights reserved.
+        </div>
+      </footer>
+    </main>
+  <script src="./assets//js/mobileMenu.js"></script>
+</body>
+</html>
